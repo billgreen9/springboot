@@ -17,7 +17,12 @@ public class SampleController {
     
     
 
-    public static void main(String[] args) throws Exception {
-        SpringApplication.run(SampleController.class, args);
-    }
+//    public static void main(String[] args) throws Exception {
+//        SpringApplication.run(SampleController.class, args);
+// ///不能run两次在，只能run一次   	
+////    	public static void main(String[] args) throws Exception {
+////            SpringApplication.run(SampleController.class, args);
+////            SpringApplication.run(TestController.class, args);
+////        }
+//    }
 }

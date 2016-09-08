@@ -5,7 +5,7 @@
 	<groupId>com.youku.yklive</groupId>
 	<artifactId>springboot</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>jar</packaging>
+	<packaging>war</packaging>
 
 	<name>springboot</name>
 	<url>http://maven.apache.org</url>
@@ -31,50 +31,79 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
+		
+		<!-- war包配置 -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-tomcat</artifactId>
+			<scope>provided</scope>
+			</dependency>
+
+		<dependency>
+			<groupId>org.apache.tomcat.embed</groupId>
+			<artifactId>tomcat-embed-jasper</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jstl</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<!-- servlet 依赖. -->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-jdbc</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>c3p0</groupId>
+			<artifactId>c3p0</artifactId>
+			<version>0.9.1.2</version>
+		</dependency>
+
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>5.1.33</version>
+		</dependency>
+		
+		<dependency>
+						<groupId>org.springframework</groupId>
+						<artifactId>springloaded</artifactId>
+						<version>1.2.0.RELEASE</version>
+					</dependency>
 
 	</dependencies>
-
 
 	<build>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<fork>true</fork>
+				</configuration>
 			</plugin>
-			<plugin>  
-                <groupId>org.apache.maven.plugins</groupId>  
-                <artifactId>maven-jar-plugin</artifactId>  
-                <configuration>  
-                    <archive>  
-                        <manifest>  
-                            <addClasspath>true</addClasspath>  
-                            <classpathPrefix>lib/</classpathPrefix>  
-                            <mainClass>com.youku.yklive.springboot.App</mainClass>  
-                        </manifest>  
-                    </archive>  
-                </configuration>  
-            </plugin>  
-            
-             <plugin>  
-                <groupId>org.apache.maven.plugins</groupId>  
-                <artifactId>maven-dependency-plugin</artifactId>  
-                <executions>  
-                    <execution>  
-                        <id>copy</id>  
-                        <phase>install</phase>  
-                        <goals>  
-                            <goal>copy-dependencies</goal>  
-                        </goals>  
-                        <configuration>  
-                            <outputDirectory>  
-                                ${project.build.directory}/lib  
-                            </outputDirectory>  
-                        </configuration>  
-                    </execution>  
-                </executions>  
-            </plugin>  
-         
+			<!-- 自动热部署 -->
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<dependencies>
+					<dependency>
+						<groupId>org.springframework</groupId>
+						<artifactId>springloaded</artifactId>
+						<version>1.2.0.RELEASE</version>
+					</dependency>
+				</dependencies>
+			</plugin>
 		</plugins>
+		
 		<finalName>springboot</finalName>
 	</build>
 </project>
