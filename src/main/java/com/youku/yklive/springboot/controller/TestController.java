@@ -31,11 +31,13 @@ public class TestController {
 		return "test";
 	}
 	
+/////不主张这么干，spring boot对jsp页面支持不太好,高版本页面就不能展示
 	@RequestMapping("/hello")
 	public String hello(){
 		return "hello1";
 	}
 	
+	/////不主张这么干，spring boot对jsp页面支持不太好,高版本页面就不能展示
 	@RequestMapping("/hello1")
 	public String hello1(){
 		return "hello1";
