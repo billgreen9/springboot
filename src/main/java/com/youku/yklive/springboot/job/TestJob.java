@@ -19,9 +19,9 @@ public class TestJob {
 	//@Value("${app.description}")
 	private String msg;
 	
-	@Scheduled(cron = "*/5 * * * * ?")
+	@Scheduled(cron = "*/5 * 1 * * ?")
 	public void execute(){
-		System.out.println("hello!"+userName+",msg="+msg);
+		System.out.println("hello1===111!"+userName+",msg="+msg);
 	}
 
 }
